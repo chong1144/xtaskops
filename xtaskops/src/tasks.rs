@@ -89,7 +89,6 @@ pub fn coverage(devmode: bool) -> AnyResult<()> {
     println!("=== running coverage ===");
     cmd!("cargo", "test")
         .env("CARGO_INCREMENTAL", "0")
-        .env("RUSTFLAGS", "-Cinstrument-coverage")
         .env("LLVM_PROFILE_FILE", "cargo-test-%p-%m.profraw")
         .run()?;
     println!("ok.");
